@@ -1,7 +1,6 @@
 <?php
 
-use App\Blog;
-use App\Http\Controllers\Admin\BlogController;
+// use App\Http\Controllers\PostController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
@@ -16,15 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// gust routes 
 Route::get('/', function () {
     return view('welcome');
 });
+Route::resource('Posts', PostController::class)->only(['index', 'show']);
+
+// admin routes 
 
 Auth::routes();
-
 
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
 
     Route::get('/', 'HomeController@index')->name('dashboard');
-    Route::resource('blogs', BlogController::class);
+
+    Route::resource('posts', PostController::class);
 });

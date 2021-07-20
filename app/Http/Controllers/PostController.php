@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Blog;
+use App\Post;
 use Illuminate\Http\Request;
 
-class BlogController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,13 +16,14 @@ class BlogController extends Controller
     {
         //
     }
+
     /**
      * Display the specified resource.
      *
-     * @param  \App\Blog  $blog
+     * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show(Post $post)
     {
         //
     }
