@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 // gust routes 
 Route::get('/', function () {
-    return view('welcome');
+    return view('guest.welcome');
 });
 Route::resource('Posts', PostController::class)->only(['index', 'show']);
 
