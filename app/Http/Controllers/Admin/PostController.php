@@ -40,7 +40,7 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => 'required | min:5 | max:100',
             'image' => 'required',
-            'description' => 'required | min:5 | max:100'
+            'description' => 'required | min:5 | max:650'
         ]);
         Post::create($validated);
 
@@ -81,7 +81,7 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => 'required | min:5 | max:100',
             'image' => 'required',
-            'description' => 'required | min:5 | max:100'
+            'description' => 'required | min:5 | max:650'
         ]);
         $post->update($validated);
 

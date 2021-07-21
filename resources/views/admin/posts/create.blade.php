@@ -34,7 +34,7 @@
             <div class="form-group">
                 <label for="description">Description</label>
                 <textarea class="form-control @error('description') is-invalid @enderror" name="description"
-                    id="description" rows="3" placeholder="Text here...(max 100)">{{ old('description') }}</textarea>
+                    id="description" rows="3" placeholder="Text here...(max 650)">{{ old('description') }}</textarea>
             </div>
             @error('description')
                 <div class="alert alert-danger">{{ $message }}</div>
