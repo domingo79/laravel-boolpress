@@ -26,7 +26,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.posts.create');
     }
 
     /**
@@ -37,7 +37,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required | min:5 | max:100',
+            'image' => 'required',
+            'description' => 'required | min:5 | max:100'
+        ]);
+        Post::create($validated);
+
+        return redirect()->route('admin.posts.index');
     }
 
     /**

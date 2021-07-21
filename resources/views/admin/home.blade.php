@@ -14,7 +14,9 @@
                             </div>
                         @endif
 
-                        {{ __('You are logged in!') }}
+                        {{-- saluto l'admin --}}
+                        <p>{{ __('You are logged in!' . ' Hello ' . Auth::user()->name) }}</p>
+                        <a href="{{ route('admin.posts.index') }}">Vai alla tua dashboard dei posts</a>
                     </div>
                 </div>
             </div>

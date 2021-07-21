@@ -21,7 +21,13 @@
                         <td><img width="100" src="{{ $post->image }}" alt="{{ $post->title }}"></td>
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->description }}</td>
-                        <td>View | Edit | Delete</td>
+                        <td>
+                            <a class="text-success" href="{{ route('admin.posts.create') }}">Create</a>
+                            <a class="text-warning" href="">Edit</a>
+                            <a class="text-danger" href="">Delete</a>
+                        </td>
+                        {{-- {{ route('admin.posts.edit', $comic->id) }}
+{{ route('admin.posts.show', $comic->id) }} --}}
                     </tr>
                 @endforeach
             </tbody>
