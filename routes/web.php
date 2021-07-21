@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('guest.welcome');
 });
-Route::resource('Posts', PostController::class)->only(['index', 'show']);
+Route::resource('posts', PostController::class)->only(['index', 'show']);
 
 // admin routes 
 
