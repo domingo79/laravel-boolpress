@@ -44,6 +44,7 @@
             <button type="submit" class="btn btn-primary btn-block">Submit</button>
 
         </form>
+        <a href="{{ route('admin.posts.index') }}">back</a>
     </div>
 
 @endsection

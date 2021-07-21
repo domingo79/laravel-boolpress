@@ -17,17 +17,18 @@
                 @foreach ($posts as $post)
 
                     <tr>
-                        <td scope="row">{{ $post->id }}</td>
-                        <td><img width="100" src="{{ $post->image }}" alt="{{ $post->title }}"></td>
+                        <td scope="row">#{{ $post->id }}</td>
+                        <td> <a href="{{ route('admin.posts.show', $post->id) }}"><img width="100"
+                                    src="{{ $post->image }}" alt="{{ $post->title }}"></a></td>
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->description }}</td>
                         <td>
-                            <a class="text-success" href="{{ route('admin.posts.create') }}">Create</a>
-                            <a class="text-warning" href="">Edit</a>
-                            <a class="text-danger" href="">Delete</a>
+
+                            <a class="text-success d-block" href="{{ route('admin.posts.create') }}">Create</a>
+                            <a class="text-primary" href=" {{ route('admin.posts.edit', $post->id) }}">Edit</a>
+                            <a class="text-danger" href="{{ route('admin.posts.destroy', $post->id) }}">Delete</a>
+
                         </td>
-                        {{-- {{ route('admin.posts.edit', $comic->id) }}
-{{ route('admin.posts.show', $comic->id) }} --}}
                     </tr>
                 @endforeach
             </tbody>
