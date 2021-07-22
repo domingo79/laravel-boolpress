@@ -14,8 +14,8 @@ class PageController extends Controller
     {
         return view('guest.adout');
     }
-    public function contacts()
+    public function formcontacts()
     {
-        return view('guest.contacts');
+        return view('guest.formcontacts');
     }
 }
