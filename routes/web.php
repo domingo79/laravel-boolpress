@@ -1,9 +1,8 @@
 <?php
 
-// use App\Http\Controllers\PostController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +22,7 @@ Route::resource('posts', PostController::class)->only(['index', 'show']);
 
 // admin routes 
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
 

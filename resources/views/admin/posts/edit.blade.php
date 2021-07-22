@@ -45,6 +45,7 @@
             <button type="submit" class="btn btn-primary btn-block">Submit</button>
 
         </form>
-        <a href="{{ route('admin.posts.index') }}">back</a>
+        <a href="{{ route('admin.posts.show', $post->id) }}">BACK to show 🤔</a>
+        <a href="{{ route('admin.posts.index') }}">BACK to post 🥱</a>
     </div>
 @endsection

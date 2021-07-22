@@ -57,7 +57,7 @@ Per utenti windows la password é root mentre per mac é vuota (quindi premi ent
 #### Crea il db ed esci
 
 ```mysql
-CREATE DATABASE database_name_here;
+CREATE DATABASE laravel_boolpress;
 exit;
 ```
 
@@ -87,7 +87,10 @@ php artisan migrate
 
 ```bash
 git add . 
-git commit -m"Install laravel ui and compile assets"
+git commit -m"Install laravel ui and compile assets" / git commit -am"Install laravel ui and compile assets" 
+
+git status
+git push
 ```
 
 ## [FASE 2] Riorganizziamo la pagina del backoffice
@@ -107,7 +110,7 @@ Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->
 ### Modifichiamo la rotta home e aggiungiamola al gruppo admin
 
 La rotta definita da laravel `home` ci viene mostrata quando l'utente effettua il login. Modifichiamola ed usiamola come rotta principale del gruppo `admin`.
-
+aggiungere HomeController o meglio spostarlo
 ```php
 Route::middleware('auth')->namespace('Admin')->name('admin.')->prefix('admin')->group(function () {
     Route::get('/', 'HomeController@index')->name('dashboard');
