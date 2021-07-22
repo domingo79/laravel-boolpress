@@ -14,11 +14,16 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// gust routes 
-Route::get('/', function () {
-    return view('guest.welcome');
-});
+// pagine connesse al PageController
+
+Route::get('/', 'PageController@index')->name('home');
+Route::get('about', 'PageController@about')->name('about');
+Route::get('contacts', 'PageController@contacts')->name('contacts');
+
+// guest routes 
+
 Route::resource('posts', PostController::class)->only(['index', 'show']);
+
 
 // admin routes 
 

@@ -28,9 +28,9 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                {{-- <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
-                </a>
+                </a> --}}
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="{{ __('Toggle navigation') }}">
@@ -39,12 +39,15 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
+                    {{-- uso il dropdown menu dell'admin
+                         <ul>
+                        <li class="navbar-nav">
+                            <a class="nav-item" href="{{ route('home') }}">Blog</a>
+                        </li>
+                    </ul> --}}
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class=" navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -63,9 +66,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('posts.index') }}">
+                                        {{ __('Blog') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -83,9 +89,9 @@
         <main class="py-4 d-flex">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
                         <aside>
-                            <ul class="nav flex-column">
+                            <ul class="nav flex-column pt-4">
                                 <li class="nav-item nav-pills">
                                     <a class="nav-link {{ Route::currentRouteName() === 'admin.dashboard' ? 'active' : '' }}"
                                         href="{{ route('admin.dashboard') }}">Dashboard</a>
@@ -106,7 +112,7 @@
                             </ul>
                         </aside>
                     </div>
-                    <div class="col-sm-9">
+                    <div class="col-sm-9 col-md-9 col-lg-9">
                         @yield('content')
                     </div>
 
