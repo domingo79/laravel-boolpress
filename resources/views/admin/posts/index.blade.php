@@ -2,8 +2,8 @@
 
 @section('content')
 
-    <div class="container table-responsive">
-        <table class="table">
+    <div class="container table table-hover">
+        <table class="table.stiped">
             <thead>
                 <tr>
                     <th>ID</th>
