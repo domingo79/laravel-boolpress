@@ -102,6 +102,7 @@ class PostController extends Controller
         if (array_key_exists('image', $validateData)) {
             $file_path = Storage::put('image', $validateData['image']);
             $validateData['image'] = $file_path;
+            Storage::delete($post->image);
         }
         $post->update($validateData);
         return redirect()->route('admin.posts.index', $post->id);
