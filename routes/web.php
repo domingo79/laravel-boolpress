@@ -20,8 +20,15 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', 'PageController@index')->name('home');
 Route::get('about', 'PageController@about')->name('about');
 
-Route::get('contacts', 'PageController@contacts')->name('contacts');
-Route::post('contacts', 'PageController@sendContactsForm')->name('contacts.send');
+//opzione uno invio mail
+// Route::get('contacts', 'PageController@contacts')->name('contacts');
+// Route::post('contacts', 'PageController@sendContactsForm')->name('contacts.send');
+
+
+//seconda opzione inio mail
+
+Route::get('contacts', 'ContactController@form')->name('contacts');
+Route::post('contacts', 'ContactController@storeAndSend')->name('contacts');
 
 // guest routes 
 

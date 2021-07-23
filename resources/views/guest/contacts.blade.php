@@ -23,7 +23,7 @@
 
         @endif
 
-        <form action="{{ route('contacts.send') }}" method="post">
+        <form action="{{ route('contacts') }}" method="post">
             @csrf
 
             <div class="form-group">
