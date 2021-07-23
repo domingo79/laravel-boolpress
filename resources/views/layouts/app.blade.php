@@ -50,7 +50,7 @@
                             <a href="{{ route('posts.index') }}" class="nav-link">Blog</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('formcontacts') }}" class="nav-link">Contacts</a>
+                            <a href="#" class="nav-link">Contacts</a>
                         </li>
 
                     </ul>
@@ -81,7 +81,7 @@
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                            document.getElementById('logout-form').submit();">
+                                                                                                document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 

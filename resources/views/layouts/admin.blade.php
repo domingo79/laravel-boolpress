@@ -71,7 +71,7 @@
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                                                 document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -101,8 +101,7 @@
                                         href="{{ route('admin.posts.index') }}">Posts</a>
                                 </li>
                                 <li class="nav-item nav-pills">
-                                    <a class="nav-link {{ Route::currentRouteName() === 'admin.contacts.index' ? 'active' : '' }} "
-                                        href="{{ route('admin.contacts.index') }}">Users</a>
+                                    <a class="nav-link" href="#">Users</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Categories</a>

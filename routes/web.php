@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'PageController@index')->name('home');
 Route::get('about', 'PageController@about')->name('about');
-Route::get('formcontacts', 'PageController@formcontacts')->name('formcontacts');
 
 // guest routes 
 
@@ -27,7 +26,7 @@ Route::resource('posts', PostController::class)->only(['index', 'show']);
 
 
 // admin routes 
-
+// ['register' => false]
 Auth::routes();
 
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
@@ -35,7 +34,4 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->
     Route::get('/', 'HomeController@index')->name('dashboard');
 
     Route::resource('posts', PostController::class);
-
-    Route::resource('contacts', ContactController::class);
 });
-// ['register' => false]
