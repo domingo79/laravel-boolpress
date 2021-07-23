@@ -43,14 +43,16 @@ class PostController extends Controller
             'image' => 'nullable | image | max:100',
             'description' => 'required | min:5 | max:650'
         ]);
-        // ddd($validateData); validazione
+        /**MIO COMMENTO 
+         * controllo se il file è un'immagine e se é si, 
+         * si procede ad assegrare il MIME type 
+         * si riassegna un arrey alla var 
+         * e si procede a creare il nuovo record
+         */
         if ($request->hasFile('image')) {
             $file_path = Storage::put('image', $validateData['image']);
-            // ddd($file_path);
             $validateData['image'] = $file_path;
         }
-
-        // ddd($validateData);
         Post::create($validateData);
         return redirect()->route('admin.posts.index');
     }
@@ -86,13 +88,22 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $validated = $request->validate([
+        $validateData = $request->validate([
             'title' => 'required | min:5 | max:100',
-            'image' => 'required',
+            'image' => 'nullable | image | max:100',
             'description' => 'required | min:5 | max:650'
         ]);
-        $post->update($validated);
-
+        /**
+         * bisogna controllare se esiste la chiave in plain php
+         * si usa il metodo array_key_exists
+         * e poi la stessa procedura di come abbiamo gestito il 
+         * create per lo store
+         */
+        if (array_key_exists('image', $validateData)) {
+            $file_path = Storage::put('image', $validateData['image']);
+            $validateData['image'] = $file_path;
+        }
+        $post->update($validateData);
         return redirect()->route('admin.posts.index', $post->id);
     }
 
