@@ -36,7 +36,7 @@ class ContactController extends Controller
     }
     public function contactsList()
     {
-        $contacts = Contact::all();
+        $contacts = Contact::orderBy('id', 'DESC')->paginate(11);
         return view('admin.contacts.listContacts', compact('contacts'));
     }
 }

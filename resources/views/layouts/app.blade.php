@@ -16,6 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2c30adbff5.js" crossorigin="anonymous"></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -41,16 +42,20 @@
                         {{-- struttura per la nav bar sx --}}
 
                         <li class="nav-item">
-                            <a href="{{ route('home') }}" class="nav-link">Home</a>
+                            <a href="{{ route('home') }}" class="nav-link"><i class="fas fa-home mr-1"></i>Home</a>
+
+                        </li>
+                        <li class=" nav-item">
+                            <a href="{{ route('about') }}" class="nav-link"><i
+                                    class="far fa-user-circle mr-1"></i>About</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('about') }}" class="nav-link">About</a>
+                            <a href="{{ route('posts.index') }}" class="nav-link"><i class="fas fa-blog mr-1"></i>Blog
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('posts.index') }}" class="nav-link">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('contacts') }}" class="nav-link">Contacts</a>
+                            <a href="{{ route('contacts') }}" class="nav-link"><i
+                                    class="far fa-paper-plane mr-1"></i>Contacts</a>
                         </li>
 
                     </ul>
@@ -77,12 +82,12 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
                                     <a class=" dropdown-item" href="{{ route('admin.dashboard') }}">
-                                        {{ __('Admin/Dashbord') }}</a>
+                                        <i class="fas fa-unlock mr-2"></i>{{ __('Admin/Dashbord') }}
+                                    </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                                                                        document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        onclick="event.preventDefault();                                                                                                                                                                       document.getElementById('logout-form').submit();">
+                                        <i class="fas fa-sign-out-alt mr-1"></i> {{ __('Logout') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

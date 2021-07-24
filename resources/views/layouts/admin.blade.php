@@ -66,13 +66,13 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
                                     <a class="dropdown-item" href="{{ route('posts.index') }}">
                                         {{ __('Blog') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        onclick="event.preventDefault();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          document.getElementById('logout-form').submit();">
+                                        <i class="fas fa-sign-out-alt mr-2"></i> {{ __('Logout') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -94,15 +94,18 @@
                             <ul class="nav flex-column pt-4">
                                 <li class="nav-item nav-pills">
                                     <a class="nav-link {{ Route::currentRouteName() === 'admin.dashboard' ? 'active' : '' }}"
-                                        href="{{ route('admin.dashboard') }}">Dashboard</a>
+                                        href="{{ route('admin.dashboard') }}"><i class="fas fa-gamepad mr-3"></i>
+                                        Dashboard</a>
+
                                 </li>
                                 <li class="nav-item nav-pills">
                                     <a class="nav-link {{ Route::currentRouteName() === 'admin.posts.index' ? 'active' : '' }}"
-                                        href="{{ route('admin.posts.index') }}">Posts</a>
+                                        href="{{ route('admin.posts.index') }}"><i
+                                            class="fab fa-usps mr-3"></i>Posts</a>
                                 </li>
                                 <li class="nav-item nav-pills">
                                     <a class="nav-link {{ Route::currentRouteName() === 'list' ? 'active' : '' }} "
-                                        href="{{ route('list') }}">Users</a>
+                                        href="{{ route('list') }}"><i class="fas fa-mail-bulk mr-3"></i>Users</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Categories</a>

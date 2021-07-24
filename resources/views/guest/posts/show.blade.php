@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-4">
+        <div class="row d-flex justify-content-center">
+            <div class=" col-md-6">
                 <div class="card text-left">
                     <img class="card-img-top" src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }} ">
                     <div class="card-body">
@@ -11,12 +11,14 @@
                         <p class="card-text">{{ $post->description }}</p>
                         <p>Creato: {{ $post->created_at }}</p>
                     </div>
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item">
+                            <a class="m-top-5" href="{{ route('posts.index') }}">Back</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        <div class="shadow-lg p-3 mb-5 bg-white rounded" style="width: 350px">
-            <a class="m-top-5" href="{{ route('posts.index') }}">Back</a>
-        </div>
 
+        </div>
     </div>
 @endsection
