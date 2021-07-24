@@ -34,4 +34,9 @@ class ContactController extends Controller
                 'Success! Grazie per la tua email, ti risponderemo il prima possibile'
             );
     }
+    public function contactsList()
+    {
+        $contacts = Contact::all();
+        return view('admin.contacts.listContacts', compact('contacts'));
+    }
 }
