@@ -16,6 +16,8 @@
                         <p class="card-text">{{ $post->description }}</p>
                         <ul>
                             <li>Create: {{ $post->created_at }}</li>
+                            {{-- da modificare con un link --}}
+                            <li>Category: {{ $post->category ? $post->category->name : 'Nessuna Categoria' }}</li>
                         </ul>
                     </div>
                 </div>
