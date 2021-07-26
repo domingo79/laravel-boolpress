@@ -81,7 +81,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        $categories = Category::all();
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
@@ -96,6 +97,7 @@ class PostController extends Controller
         $validateData = $request->validate([
             'title' => 'required | min:5 | max:100',
             'image' => 'nullable | image | max:1000',
+            'category_id' => 'nullable | exists:categories,id',
             'description' => 'required | min:5 | max:650'
         ]);
         /**
