@@ -34,6 +34,8 @@ Route::post('contacts', 'ContactController@storeAndSend')->name('contacts');
 
 Route::resource('posts', PostController::class)->only(['index', 'show']);
 
+//categorie
+Route::get('categories/{category:slug}', 'CategoryController@show')->name('categories.show');
 
 // admin routes 
 // ['register' => false]

@@ -5,7 +5,14 @@
         <div class="row d-flex justify-content-center">
             <div class=" col-md-6">
                 <div class="card text-left">
-                    <h3 class="card-title">Categorie: {{ $post->category ? $post->category->name : 'Nessuna Categoria' }}
+                    <h3 class="card-title">Categorie:
+                        @if ($post->category)
+                            <a
+                                href="{{ route('categories.show', $post->category->slug) }}">{{ $post->category ? $post->category->name : 'Nessuna Categoria' }}</a>
+
+                        @else
+                            {{ $post->category ? $post->category->name : 'Nessuna Categoria' }}
+                        @endif
                     </h3>
                     <img class="card-img-top" src="{{ asset($post->path) }}" alt="{{ $post->title }} ">
                     <div class="card-body">

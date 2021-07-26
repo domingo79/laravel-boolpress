@@ -21,6 +21,7 @@ class Post extends Model
     public function getPathAttribute()
     {
         $url = $this->image;
+
         if (stristr($this->image, 'http') === false) {
             $url = 'storage/' . $this->image;
         }
