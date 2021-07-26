@@ -7,8 +7,7 @@
         <div class="card mb-3">
             <div class="row no-gutters">
                 <div class="col-md-5">
-                    <img class="img-fluid " src="{{ asset('storage/' . $post->image) }}"
-                        alt="image on the {{ $post->title }}">
+                    <img class="img-fluid " src="{{ asset($post->path) }}" alt="image on the {{ $post->title }}">
                 </div>
                 <div class="col-md-7">
                     <div class="card-body">

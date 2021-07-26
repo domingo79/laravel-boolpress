@@ -7,7 +7,7 @@
                 <div class="card text-left">
                     <h3 class="card-title">Categorie: {{ $post->category ? $post->category->name : 'Nessuna Categoria' }}
                     </h3>
-                    <img class="card-img-top" src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }} ">
+                    <img class="card-img-top" src="{{ asset($post->path) }}" alt="{{ $post->title }} ">
                     <div class="card-body">
                         <h4 class="card-title">{{ $post->title }}</h4>
                         <p class="card-text">{{ $post->description }}</p>

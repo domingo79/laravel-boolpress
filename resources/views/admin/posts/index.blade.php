@@ -29,7 +29,7 @@
                         <tr>
                             <td scope="row">#{{ $post->id }}</td>
                             <td> <a href="{{ route('admin.posts.show', $post->id) }}"><img width="100"
-                                        src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}"></a></td>
+                                        src="{{ asset($post->path) }}" alt="{{ $post->title }}"></a></td>
                             <td>{{ $post->title }}</td>
                             <td>{{ $post->description }}</td>
                             <td>

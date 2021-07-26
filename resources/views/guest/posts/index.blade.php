@@ -13,8 +13,7 @@
             @foreach ($posts as $post)
                 <div class="col-md-4 mt-3 mb-3">
                     <div class="card text-left">
-                        <img class="card-img-top" src="{{ asset('storage/' . $post->image) }}"
-                            alt="{{ $post->title }} ">
+                        <img class="card-img-top" src="{{ asset($post->path) }}" alt="{{ $post->title }} ">
                         <div class="card-body">
                             <h4 class="card-title">{{ $post->title }}</h4>
                             <p class="card-text overflow-hidden">{{ $post->description }}</p>

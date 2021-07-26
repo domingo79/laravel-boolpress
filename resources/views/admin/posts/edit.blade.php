@@ -32,9 +32,11 @@
             <div class="form-group">
                 <label for="image">Replace Image</label>
                 {{-- aggiungo la vecchia immagine --}}
-                <div class="mt-2 mb-3"><img width="100" src="{{ asset('storage/' . $post->image) }}"
-                        alt="{{ $post->title }}">
+                <div class="mt-2 mb-3"><img width="100" src="{{ asset($post->path) }}" alt="{{ $post->title }}">
                 </div>
+                {{-- <div class="mt-2 mb-3"><img width="100" src="{{ asset('storage/' . $post->image) }}"
+                        alt="{{ $post->title }}">
+                </div> --}}
                 <input type="file" class="form-control-file" name="image" id="image" placeholder="image replace"
                     aria-describedby="fileHelpId">
                 <small id="fileHelpId" class="form-text text-muted">Add a new image img.(jpeg, png, bmp, gif, svg, or

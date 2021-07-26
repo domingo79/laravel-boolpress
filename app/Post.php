@@ -15,4 +15,15 @@ class Post extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    /**
+     * fun per img & url
+     */
+    public function getPathAttribute()
+    {
+        $url = $this->image;
+        if (stristr($this->image, 'http') === false) {
+            $url = 'storage/' . $this->image;
+        }
+        return $url;
+    }
 }
