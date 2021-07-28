@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use phpDocumentor\Reflection\DocBlock\Tag;
 
 class Post extends Model
 {
@@ -14,6 +16,15 @@ class Post extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+    //aggiunta di una many to many Post Tag 
+    /**The tags that belong to the Post
+     * @return \illuminate\Database\Eloquent\Relations\BelongsToMany 
+     * 
+     */
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany(Tag::class);
     }
     /**
      * fun per img & url
