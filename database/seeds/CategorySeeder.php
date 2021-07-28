@@ -2,6 +2,7 @@
 
 use App\Category;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class CategorySeeder extends Seeder
 {
@@ -13,6 +14,7 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $categories = ['Animali', 'Natura Paesaggio', 'Sport', 'Mare', 'Montagna', 'Nessuna Categoria'];
+
         foreach ($categories as $category) {
             $cat = new Category();
             $cat->name = $category;
