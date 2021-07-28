@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -28,8 +29,9 @@ class PostController extends Controller
      */
     public function create()
     {
+        $tags = Tag::all();
         $categories = Category::all();
-        return view('admin.posts.create', compact('categories'));
+        return view('admin.posts.create', compact('categories', 'tags'));
     }
 
     /**
@@ -40,12 +42,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        // ddd($request->all());
+        //ddd($request->all());
 
         $validateData = $request->validate([
             'title' => 'required | min:5 | max:100',
             'image' => 'nullable | image | max:1000',
             'category_id' => 'nullable | exists:categories,id',
+            'tags' => 'nullable | exists:tags,id',
             'description' => 'required | min:5 | max:650'
         ]);
         /**MIO COMMENTO 
@@ -58,7 +61,8 @@ class PostController extends Controller
             $file_path = Storage::put('image', $validateData['image']);
             $validateData['image'] = $file_path;
         }
-        Post::create($validateData);
+        $post = Post::create($validateData);
+        $post->tags()->attach($request->tags);
         return redirect()->route('admin.posts.index');
     }
 
@@ -82,7 +86,8 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $categories = Category::all();
-        return view('admin.posts.edit', compact('post', 'categories'));
+        $tags = Tag::all();
+        return view('admin.posts.edit', compact('post', 'categories', 'tags'));
     }
 
     /**
@@ -94,10 +99,13 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        // ddd($request->all());
+
         $validateData = $request->validate([
             'title' => 'required | min:5 | max:100',
             'image' => 'nullable | image | max:1000',
             'category_id' => 'nullable | exists:categories,id',
+            'tags' => 'nullable | exists:tags,id',
             'description' => 'required | min:5 | max:650'
         ]);
         /**
@@ -112,7 +120,10 @@ class PostController extends Controller
             Storage::delete($post->image);
         }
         $post->update($validateData);
-        return redirect()->route('admin.posts.index', $post->id);
+        // $post->tags()->datach();
+        // $post->tags()->attach($request->tags);
+        $post->tags()->sync($request->tags);
+        return redirect()->route('admin.posts.index');
     }
 
     /**

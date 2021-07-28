@@ -18,6 +18,14 @@
                             {{-- da modificare con un link --}}
                             <li>Category: {{ $post->category ? $post->category->name : 'Nessuna Categoria' }}</li>
                         </ul>
+                        <div class="tags">
+                            Tags:
+                            @forelse ($post->tags as $tag )
+                                <span>#{{ $tag->name }} |</span>
+                            @empty
+                                <span>no Tags</span>
+                            @endforelse
+                        </div>
                     </div>
                 </div>
             </div>

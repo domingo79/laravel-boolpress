@@ -74,6 +74,25 @@
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
 
+            <div class="form-group">
+                <label for="tags">Tags</label>
+                <select multiple class="form-control @error('tags') is-invalid @enderror" name="tags[]" id="tags" required>
+                    <option value="" disabled>Select a tag</option>
+
+                    @if ($tags)
+
+                        @foreach ($tags as $tag)
+                            <option value="{{ $tag->id }}" {{ $post->tags->contains($tag) ? 'selected' : '' }}>
+                                {{ $tag->name }}</option>
+                        @endforeach
+                    @endif
+
+                </select>
+            </div>
+            @error('tags')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+
 
             <button type="submit" class="btn btn-primary btn-block">Submit</button>
 

@@ -19,6 +19,15 @@
                         <h4 class="card-title">{{ $post->title }}</h4>
                         <p class="card-text">{{ $post->description }}</p>
                         <p>Creato: {{ $post->created_at }}</p>
+
+                        <div class="tags">
+                            Tags:
+                            @forelse ($post->tags as $tag )
+                                <span>#{{ $tag->name }} |</span>
+                            @empty
+                                <span>no Tags</span>
+                            @endforelse
+                        </div>
                     </div>
                     <ul class="list-group list-group-flush ">
                         <li class="list-group-item">
