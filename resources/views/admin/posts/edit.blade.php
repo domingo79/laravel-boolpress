@@ -80,8 +80,12 @@
                     <option value="" disabled>Select a tag</option>
 
                     @if ($tags)
-
                         @foreach ($tags as $tag)
+                            @if ($errors->any())
+                                <option value="{{ $tag->id }}"
+                                    {{ in_array($tag->id, old('tags')) ? 'selected' : '' }}>
+                                    {{ $tag->name }}</option>
+                            @endif
                             <option value="{{ $tag->id }}" {{ $post->tags->contains($tag) ? 'selected' : '' }}>
                                 {{ $tag->name }}</option>
                         @endforeach
