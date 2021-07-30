@@ -3,7 +3,7 @@
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Resources\PostResource;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,3 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('posts', 'API\PostController@index');
+
+
+//restituire una singola risorsa(post)
+Route::get('posts/{post}', function (Post $post) {
+    return new PostResource(Post::find($post));
+});
