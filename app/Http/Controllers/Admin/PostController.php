@@ -115,9 +115,9 @@ class PostController extends Controller
          * create per lo store
          */
         if (array_key_exists('image', $validateData)) {
+            Storage::delete($post->image);
             $file_path = Storage::put('image', $validateData['image']);
             $validateData['image'] = $file_path;
-            Storage::delete($post->image);
         }
         $post->update($validateData);
         // $post->tags()->datach();
