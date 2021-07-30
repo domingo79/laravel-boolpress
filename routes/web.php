@@ -49,3 +49,8 @@ Route::middleware('auth')->prefix('admin')->namespace('Admin')->name('admin.')->
     Route::resource('posts', PostController::class);
 });
 Route::get('listContacts', 'ContactController@contactsList')->name('list');
+
+
+Route::get('vue', function () {
+    return view('posts');
+});
