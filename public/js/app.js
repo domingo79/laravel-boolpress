@@ -49881,7 +49881,7 @@ var app = new Vue({
 
     Axios.get('/api/posts').then(function (resp) {
       console.log(resp);
-      _this.posts = resp.data;
+      _this.posts = resp.data.data;
     })["catch"](function (err) {
       console.error('Sorry! ' + err);
     });

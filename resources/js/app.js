@@ -37,7 +37,7 @@ const app = new Vue({
     mounted() {
         Axios.get('/api/posts').then(resp => {
             console.log(resp);
-            this.posts = resp.data;
+            this.posts = resp.data.data;
         }).catch(err => {
             console.error('Sorry! ' + err);
         })
