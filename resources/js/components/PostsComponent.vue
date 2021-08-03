@@ -46,5 +46,15 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
+<style scoped>
+.card {
+  box-shadow: 1px 2px 3px rgb(90, 57, 90);
+}
+.card-text {
+  color: rgb(38, 49, 177);
+}
+.card-title {
+  color: brown;
+  text-transform: capitalize;
+}
 </style>
